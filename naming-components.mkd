@@ -1,0 +1,108 @@
+# Naming React Components
+
+As React.js applications scale they become complex and difficult to understand and manage. This is the main reason that components should have meaningful names, that describe their purpose in the application.
+
+## Use PascalCase
+
+In pascal case, names start with a capital letter. If names consist of multiple words, all words start with capital letters. The term Pascal case became popular among the Pascal programming language developers, as they figured out that it increases the readability of the code.
+
+<div align="center">
+<img style="width: 120px; border-radius: 10px; margin-left:8px; :center;" src="images/pascal.jpeg">
+</div>
+
+Why do we use Pascal case when creating components? According to the React.js official documentation: 
+
+
+> User-Defined Components Must Be Capitalized
+>
+> When an element type starts with a lowercase letter, it refers to a built-in component like `<div>` or `<span>` and results in a string 'div' or 'span' passed to React.createElement. Types that start with a capital letter like `<Foo />` compile to `React.createElement(Foo)` and correspond to a component defined or imported in your JavaScript file.
+>
+> We recommend naming components with a capital letter. If you do have a component that starts with a lowercase letter, assign it to a capitalized variable before using it in JSX.
+
+<br>
+
+## Different types of components
+
+First, when you develop a website using the component-driven approach, you have components that are reusable throughout the application. If the component is reusable, try to give them a generic but meaningful name.
+
+More context-specific names should be given to pages. A page is a React.js component that uses other components to assemble the page like lego blocks.
+
+Last, there are cases that a component is created, not because of our need to reuse it, but because we would like to simplify bigger components or pages, extracting logic out of them. The smaller the components are, the easier they can be understood, maintained, and tested.
+
+<br>
+
+# Code Examples
+
+## Case 1: Using the correct case
+
+As mentioned before, use Pascal Case to name your components.
+
+```js
+// Don't do this: 
+const shoppingList = () => {}
+const shopping-list = () => {}
+
+// Do this instead: 
+const ShoppingList = () => {}
+```
+
+## Case 2: Reusable Components
+
+Let's say we have 5 tables with an overview of our customers throughout the application, and those tables need to have a background color, specific width etc. Thus, a wise design choice would be to create a reusable UI component that wraps those tables. How should we name it?
+
+```js
+// Don't do this: 
+const Container = () => {}
+const Wrapper = () => {}
+const MyTable = () => {}
+
+// Do this instead.
+const CustomerTableWrapper = () => {}
+const CustomerTableContainer = () => {}
+
+// Or maybe not, since there can be a future task of creating an employees table, which will have the same styling as the customer's table container.
+
+// Thus, do this:
+const TableStyledWrapper = () => {}
+const TableStyledContainer = () => {}
+```
+
+## Case 3: Pages
+
+When you have complete pages which are going to be rendered on a URL, try to give them a simple and meaningful name that depicts their content. It is a common practice to give those components the Page suffix and group them in a different folder than the reusable components. F.ex., for a Car Rental Website:
+
+```js
+// Based on a Uni project
+
+const HomePage = () => {}
+const LoginPage = () => {}
+const RegisterPage = () => {}
+const BookingOverviewPage = () => {}
+const IndividualBookingDetailsPage = () => {}
+const CustomerOverviewPage = () => {}
+const CarOverviewPage = () => {}
+const ParkingSpotsOverviewPage = () => {}
+const PickUpCarPage = () => {}
+const ReturnCarPage = () => {}
+const ShortTermAllocationPage = () => {}
+```
+
+## Case 4: Non-Reusable Components
+
+As mentioned above, there can be components that are not reusable. In this case, the naming should be very specific compared to the generic name nature of the reusable ones. F.ex., the ReturnCarPage content that we saw above, has a logic heavy part that holds information about the car that will be returned.
+
+```js
+// Don't do this
+const CarInfo = () => {}
+
+// Do this instead
+const ReturnedCarInfoSection = () => {}
+```
+
+P.S.: Sometimes names can be long. It's fine. The more descriptive the better.
+
+### References & Further Reading
+
+- [Pascal case](https://www.theserverside.com/definition/Pascal-case#:~:text=The%20term%20Pascal%20case%20was,improved%20the%20readability%20of%20code.)
+- [React.js docs: JSX In Depth](https://reactjs.org/docs/jsx-in-depth.html)
+- [Clean Code Book](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
