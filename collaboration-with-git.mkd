@@ -1,0 +1,55 @@
+# Working With Git
+
+As you know, there are plenty of guides regarding `Git`. This guide only contains the necessary commands and guidelines that you need in order to work in groups during the TID project. It contains practices that are used at an industry level that will hopefully equip you with some small but significant skills that will make your life easier. In the last section about further reading, I provide you links for git playgrounds and further documentation that you can use but it is out of the course scope.
+
+# Let's start: Initializing and cloning a repository.
+
+# How to write a proper commit message.
+
+Why is writing a commit message so important? According to [researchers](https://arxiv.org/pdf/2202.02974.pdf):
+
+> A key issue in collaborative software development is communication among developers. One modality of communication is a
+commit message, in which developers describe the changes they
+make in a repository. As such, commit messages serve as an “audit
+trail” by which developers can understand how the source code
+of a project has changed—and why. Hence, the quality of commit messages affects the effectiveness of communication among
+developers.
+
+A great guide about how to write proper commit messages can be found here. It has the necessary information to make you git commit message heros: [How to write a commit message that will make your mom proud
+](https://robertcooper.me/post/git-commit-messages).
+
+# Branching strategy
+
+A simple way to think of branches is creating the mental image of a tree. A tree consists of a trunk and several branches, with the trunk being the main branch of your development, usually called as master or main, and the rest of the branches being the branches of this tree. Each branch is a way to develop features or apply changes to your software without affecting the main branch of your project (trunk).
+
+<div align="center">
+<img style="width: 300px; border-radius: 10px; margin-left:8px;" src="images/git-branches-merge.png">
+</div>
+
+# Branch protection rules
+
+You don't want bugs and wrong implementations to end up in the main branch of your project. That's why it is a good strategy to have a `development` branch where you merge your individual branches. The development branch should be merged in the main once the sprint is over.
+
+A good idea woule be to add protection rules in your projects. These rules can be seen [here](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule). You don't want people to push changes without being seen by the team. By the time that you work in a team, there's no place for this attitude. Branches can be merged only if a Pull Request has been reviewed and approved by X amount of team members. In this way you make sure that you deliver quality software without breaking anything.
+
+# How should I name branches?
+
+Version control is of great importance, as developers can keep track of changes applied on their code. Lacking meaningful branch names leads to confusion, bad communication and non maintainable codebases. Your branches should speak by themselves and give a clear overview of what they are about. There are hundreds of naming conventions that could be followed but the following would be enough for the scope of this project. 
+It allows easy tracking of what each member of the team does:
+
+`<student-initials>/<type-of-branch>/<branch-name>`
+
+1. Hey guys, who developed this feature? No need to ask this question, right? Provide your initials as the first thing in your branches.
+2. A branch can serve different purposes. In this project, imo, you will need 2 types of branches: **features** and **bugfixes**.
+3. The branch name should be unique and provide sufficient information on what you are developing or fixing.
+
+Let's see some examples of clean branch names:
+
+- `evpa/bugfix/properly-aligning-navigation-links`
+- `etst/feature/product-card-for-individual-product-page`
+- `krjo/bugfix/product-description-text-doesnt-wrap`
+- `evpa/feature/implementing-user-authentication`
+
+
+
+
