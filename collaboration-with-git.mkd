@@ -4,6 +4,8 @@ As you know, there are plenty of guides regarding `Git`. This guide only contain
 
 # Let's start: Initializing and cloning a repository.
 
+For this year, we don't have the time to write an thorough documentations on this topic. Thus, you can watch the video on [Git Introduction](https://learnit.itu.dk/mod/forum/discuss.php?d=31929) that goes through the whole process.
+
 # How to write a proper commit message.
 
 Why is writing a commit message so important? According to [researchers](https://arxiv.org/pdf/2202.02974.pdf):
@@ -18,7 +20,7 @@ developers.
 A great guide about how to write proper commit messages can be found here. It has the necessary information to make you git commit message heros: [How to write a commit message that will make your mom proud
 ](https://robertcooper.me/post/git-commit-messages).
 
-# Branching strategy
+# Branching
 
 A simple way to think of branches is creating the mental image of a tree. A tree consists of a trunk and several branches, with the trunk being the main branch of your development, usually called as master or main, and the rest of the branches being the branches of this tree. Each branch is a way to develop features or apply changes to your software without affecting the main branch of your project (trunk).
 

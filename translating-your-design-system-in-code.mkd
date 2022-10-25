@@ -1,0 +1,69 @@
+# Translating your design system in code
+
+This doc is meant to help you introduce practices in your project, that will help you\
+introduce reusability and maintainability concepts in the codebase.
+
+## Registering variables for your styles
+
+A nice paragraph that I found online on why creating variables that hold your CSS\
+properties is really valuable:
+
+> When designing an application it’s a common practice to set aside a set of brand\
+colors that will be reused to keep the look of the app consistent. Unfortunately,\
+repeating these color values over and over again in your CSS is not only a chore,\
+but also error prone. If, at some point, one of the colors needs to be changed, you\
+could throw caution to the wind and “find-and-replace” all the things, but on a\
+large enough project this could easily get dangerous.
+
+## How to do it
+
+First, the variables should be declared in the `:root` selector, as it
+corresponts\
+to the root of the element of the document. Thus, you simply create a CSS file under\
+src and create your styles in there.
+
+Let's present all this in practice. This is a design system, where the colors and their\
+purposes are registered. It is a good practice to have alignment between your design\
+system and your code.
+
+<img style="width: 500px; border-radius: 10px; margin-left:8px;" src="images/colors-design-library.png">
+
+Then, as described above, under the `:root` selector, we start registering our variables.\
+The variables should be registered with using the `--` prefix, as:
+
+> Property names that are prefixed with --, like --example-name, represent custom\
+properties that contain a value that can be used in other declarations.
+
+
+<img style="width: 400px; border-radius: 10px; margin-left:8px;" src="images/color-variables.png">
+
+Now it is super simple to use them in your other CSS files, and under other selectors,\
+just by using the var() function. An example is shown below: 
+
+<img style="width: 400px; border-radius: 10px; margin-left:8px;" src="images/use-variables.png">
+
+## Making composite variables (More challenging for those interested)
+
+There are some CSS properties like `font` [(source here)](https://www.w3schools.com/cssref/pr_font_font.php), that are shorthand properties\
+for more properties: 
+
+`font: font-style font-variant font-weight font-size/line-height font-family|caption|icon|menu|message-box|small-caption|status-bar|initial|inherit;`
+
+In this case, you can create composite variables consisting of more variables. Let's\
+visualize this:
+
+<img style="width: 400px; border-radius: 10px; margin-left:8px;" src="images/font-vars.png">
+
+<img style="width: 400px; border-radius: 10px; margin-left:8px;" src="images/composite-vars.png">
+
+Thus, in the previous screenshot that I will provide again below, the `--mont-wasp`\
+variable, will give my text the `font-size` of `1rem` and the `font-family` of `Montserrat`.
+
+<img style="width: 400px; border-radius: 10px; margin-left:8px;" src="images/use-variables.png">
+
+## Something about naming CSS variables
+
+P.S. the variables have insect names because it is easy to visualize scale with using instances\
+that are familiar to you 👀. [The dilemma of naming font size variables](https://css-tricks.com/the-dilemma-of-naming-font-size-variables/) is a nice article that\
+changed my mentality on variable naming. Maybe you should give it a look and see if it\
+makes sense to adopt these practices!
